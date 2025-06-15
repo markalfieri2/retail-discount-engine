@@ -36,11 +36,9 @@ for (let i = 0; i < 3; i++) {
   }
 
   let totalCost = 0;
-  // Track purchases for this customer
   let purchases = [];
 
   for (let product of products) {
-    // Random amount between 0 and 5, but not more than inventoryCount
     let maxPurchase = Math.min(5, product.inventoryCount);
     let purchased = Math.floor(Math.random() * (maxPurchase + 1));
     if (purchased > 0) {
@@ -50,26 +48,10 @@ for (let i = 0; i < 3; i++) {
     purchases.push({ name: product.name, purchased });
   }
 
+  // Clean output: only show summary and items purchased
   console.log(`Customer ${i + 1} (${customerType}): Total cost = $${totalCost.toFixed(2)}`);
   console.log("Items purchased:");
   for (let item of purchases) {
     console.log(`- ${item.name}: ${item.purchased}`);
-  }
-
-  // Log all products: use for...in for odd-indexed, Object.entries for even-indexed
-  for (let j = 0; j < products.length; j++) {
-    let product = products[j];
-    if (j % 2 === 0) {
-      console.log(`for...in breakdown (${product.name}):`);
-      for (let key in product) {
-        console.log(`${key}: ${product[key]}`);
-      }
-    } else {
-      console.log(`Object.entries breakdown (${product.name}):`);
-      for (let [key, value] of Object.entries(product)) {
-        console.log(`${key}: ${value}`);
-      }
-    }
-    console.log('---');
   }
 }
