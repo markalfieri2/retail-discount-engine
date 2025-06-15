@@ -1,4 +1,3 @@
-console.log("JS file loaded!");
 const products = [
   { name: "Laptop", category: "electronics", price: 1200, inventoryCount: 10 },
   { name: "Jeans", category: "apparel", price: 50, inventoryCount: 30 },
